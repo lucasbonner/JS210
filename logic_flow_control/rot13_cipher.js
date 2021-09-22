@@ -10,43 +10,43 @@
 
 // Write a Function, rot13, that takes a String and returns that String transformed by the rot13 cipher.
 
-const LOWALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
-const BIGALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const LOW_ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const BIG_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 function rot13(str) {
   let result = "";
-  let current_index = 0
+  let currentIndex = 0
 
   for (i = 0; i < str.length; i++) {
     let big = false;
     let low = false;
 
-    if (LOWALPHABET.includes(str[i])) {
-      current_index = LOWALPHABET.indexOf(str[i]);
+    if (LOW_ALPHABET.includes(str[i])) {
+      currentIndex = LOW_ALPHABET.indexOf(str[i]);
       low = true;
-    } else if (BIGALPHABET.includes(str[i])) {
-      current_index = BIGALPHABET.indexOf(str[i]);
+    } else if (BIG_ALPHABET.includes(str[i])) {
+      currentIndex = BIG_ALPHABET.indexOf(str[i]);
       big = true;
     }
 
 
-    if ((current_index + 13) >= 26) {
-      current_index = ((current_index + 13) - 26)
+    if ((currentIndex + 13) >= 26) {
+      currentIndex = ((currentIndex + 13) - 26)
     } else {
-      current_index = (current_index + 13)
+      currentIndex = (currentIndex + 13)
     }
 
     if (big) {
-      result += BIGALPHABET[current_index];
+      result += BIG_ALPHABET[currentIndex];
       big = false;
     } else if (low) {
-      result += LOWALPHABET[current_index];
+      result += LOW_ALPHABET[currentIndex];
       low = false;
     } else {
       result += str[i];
     }
 
-    current_index = 0;
+    currentIndex = 0;
   }
   return result;
 }
