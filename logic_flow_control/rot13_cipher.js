@@ -17,7 +17,7 @@ function rot13(str) {
   let result = "";
   let currentIndex = 0
 
-  for (i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     let big = false;
     let low = false;
 
