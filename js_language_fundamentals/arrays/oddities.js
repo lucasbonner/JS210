@@ -4,6 +4,8 @@ The oddities function takes an array as an argument and returns a new array cont
  The program below uses the array returned by oddities as part of a comparison. Can you explain the results of these comparisons?
 */
 
+///diff objects;;;arrays are objects
+
 function oddities(array) {
   const oddElements = [];
 
